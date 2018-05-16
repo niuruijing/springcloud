@@ -20,8 +20,9 @@ zuul:
       serviceId: api-gateway
     api-oauthservice:
       path: /oauth-service/**
+      sensitiveHeaders:
       serviceId: oauth-service
-
+  add-proxy-headers: true
 #关闭熔断器转发请求的默认时间设置   （在一定时间内发送不成功  抛出异常）
 #其他的设置hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds:
 
@@ -47,10 +48,10 @@ eureka:
 security:
   oauth2:
     client:
-      access-token-uri: http://127.0.0.1:5555/api-gateway/oauth-service/oauth/token
-      user-authorization-uri: http://127.0.0.1:5555/api-gateway/oauth-service/oauth/authorize
-      client-id: hjcloud
+      access-token-uri: http://127.0.0.1:5555/oauth-service/oauth/token
+      user-authorization-uri: http://127.0.0.1:5555/oauth-service/oauth/authorize
+      client-id: app
     resource:
-      user-info-uri: http://127.0.0.1:5555/api-gateway/oauth-service/user
+      user-info-uri: http://127.0.0.1:5555/oauth-service/user
       prefer-token-info: false
   retryable: true
