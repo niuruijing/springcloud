@@ -40,7 +40,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Autowired
     private UserDetailsService userDetailsService;
 
-
     /**
      * 定义令牌端点上的安全约束
      * @param oauthServer
@@ -78,6 +77,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
      * @param endpoints
      * @throws Exception
      */
+
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints
@@ -85,4 +85,5 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .userDetailsService(userDetailsService)
                 .authenticationManager(authenticationManager);
     }
+
 }

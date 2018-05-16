@@ -16,5 +16,8 @@ eureka:
     serviceUrl:
       defaultZone: http://127.0.0.1:8000/eureka/
 
-
+security:
+  oauth2:
+    resource:
+      filter-order: 3
 
