@@ -1,0 +1,56 @@
+spring:
+  application:
+    name: api-gateway
+server:
+  port: 5555
+
+
+#在面向服务的API网关配置中，对zuul进行自动配置  默认值为serviceId：服务名称，path：/服务名称/**
+#ignored-patterns:不自动创建路由的服务规则  如*
+zuul:
+  routes:
+    api-a:
+      path: /user-server/**
+      serviceId: user-server
+    api-b:
+      path: /feign-consumer-dec/**
+      serviceId: feign-consumer-dec
+    api-gateway:
+      path: /api-gateway/**
+      serviceId: api-gateway
+    api-oauthservice:
+      path: /oauth-service/**
+      serviceId: oauth-service
+
+#关闭熔断器转发请求的默认时间设置   （在一定时间内发送不成功  抛出异常）
+#其他的设置hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds:
+
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: false
+
+eureka:
+  client:
+      serviceUrl:
+        defaultZone: http://127.0.0.1:8000/eureka/
+  instance:
+    hostname: api-gateway
+    prefer-ip-address: true
+    instance-id: 127.0.0.1:${server.port}
+
+#management:
+#  security:
+#    enabled: false
+security:
+  oauth2:
+    client:
+      access-token-uri: http://127.0.0.1:5555/api-gateway/oauth-service/oauth/token
+      user-authorization-uri: http://127.0.0.1:5555/api-gateway/oauth-service/oauth/authorize
+      client-id: hjcloud
+    resource:
+      user-info-uri: http://127.0.0.1:5555/api-gateway/oauth-service/user
+      prefer-token-info: false
+  retryable: true

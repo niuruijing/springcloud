@@ -1,0 +1,25 @@
+---
+spring:
+  application:
+    name: ribbon-consumer
+server:
+  port: 8099  #启动多个服务测试  避免端口冲突
+
+#endpoints:
+  #info:
+    #path: /hello
+eureka:
+  instance:  #包装成instanceInfo对象  配置元数据（给注册服务中心发送的表述自身的数据）
+      hostname: ribbonConsumer
+      prefer-ip-address: true
+      instance-id: 127.0.0.1:${server.port}
+      #status-page-url-path: https://${eureka.instance.hostname}/hello  绝对路径  https  安全
+      #status-page-url-path: ${endpoints.info.path}  #设置启动默认断点 默认（info）/相对路径（默认http访问）
+      lease-renewal-interval-in-seconds: 1
+      lease-expiration-duration-in-seconds: 2
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8000/eureka/
+
+
+

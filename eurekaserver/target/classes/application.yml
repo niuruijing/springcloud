@@ -1,0 +1,22 @@
+---
+spring:
+  application:
+    name: eureka-server
+server:
+  port: 8000
+  #eureka.client  设置注册中心的配置
+  #eureka.instance  服务实例类配置
+  #eureka.server
+  #eureka.service
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+    register-with-eureka: false
+    fetch-registry: false
+  server:
+    enable-self-preservation: false    #测试时关闭自我保护机制，保证不可用服务及时踢出
+    eviction-interval-timer-in-ms: 10000  #毫秒为单位    清楚缓存
+

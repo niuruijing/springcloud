@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/eurekaserver/eurekaserver.iml" filepath="$PROJECT_DIR$/eurekaserver/eurekaserver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/feignconsumer/feignconsumer.iml" filepath="$PROJECT_DIR$/feignconsumer/feignconsumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oauthService/oauthService.iml" filepath="$PROJECT_DIR$/oauthService/oauthService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ribbonconsumer/ribbonconsumer.iml" filepath="$PROJECT_DIR$/ribbonconsumer/ribbonconsumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springcloudhj.iml" filepath="$PROJECT_DIR$/springcloudhj.iml" />
+      <module fileurl="file://$PROJECT_DIR$/userserver/userserver.iml" filepath="$PROJECT_DIR$/userserver/userserver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/userserverapi/userserverapi.iml" filepath="$PROJECT_DIR$/userserverapi/userserverapi.iml" />
+    </modules>
+  </component>
+</project>

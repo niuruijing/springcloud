@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="eurekaserver" />
+        <module name="feignconsumer" />
+        <module name="gateway" />
+        <module name="oauthService" />
+        <module name="ribbonconsumer" />
+        <module name="userserver" />
+        <module name="userserverapi" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="comhjoauthSSOservice" target="1.8" />
+      <module name="eureka-server" target="1.8" />
+      <module name="eurekaserver" target="1.8" />
+      <module name="feignconsumer" target="1.8" />
+      <module name="gateway" target="1.8" />
+      <module name="oauth20service" target="1.8" />
+      <module name="oauthService" target="1.8" />
+      <module name="oauthSSOservice" target="1.5" />
+      <module name="ribbonconsumer" target="1.8" />
+      <module name="springcloudhj" target="1.5" />
+      <module name="user-service" target="1.8" />
+      <module name="userserver" target="1.8" />
+      <module name="userserverapi" target="1.8" />
+      <module name="zuulservice" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

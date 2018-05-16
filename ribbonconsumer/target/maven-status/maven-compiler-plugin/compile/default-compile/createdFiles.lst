@@ -1,0 +1,3 @@
+com\hj\ribbon\ConsumerApplication.class
+com\hj\ribbon\service\UserService.class
+com\hj\ribbon\controller\ConsumerController.class
