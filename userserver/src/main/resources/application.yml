@@ -4,7 +4,7 @@ spring:
     name: user-server
 
 server:
-  port: 8088  #启动多个服务测试  避免端口冲突
+  port: 8086  #启动多个服务测试  避免端口冲突
 
 #endpoints:
   #info:
