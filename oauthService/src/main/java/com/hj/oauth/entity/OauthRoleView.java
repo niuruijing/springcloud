@@ -79,6 +79,9 @@ public class OauthRoleView {
         return authorityName;
     }
 
+
+
+
     public void setAuthorityName(String authorityName) {
         this.authorityName = authorityName == null ? null : authorityName.trim();
     }
