@@ -14,20 +14,6 @@ import java.security.Principal;
 @RestController
 public class TestEndpoints {
 
-
-    @GetMapping("/product/{id}")
-    public String getProduct(@PathVariable String id) {
-        //for debug
-        //Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        return "product id : " + id;
-    }
-
-    @GetMapping("/order/{id}")
-    public String getOrder(@PathVariable String id) {
-        //for debug
-       // Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        return "order id : " + id;
-    }
     @GetMapping("/user")
     public Principal user(Principal user){
         return user;

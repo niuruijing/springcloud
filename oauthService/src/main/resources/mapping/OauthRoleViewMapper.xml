@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hj.oauth.mapper.OauthRoleViewMapper">
+  <resultMap id="BaseResultMap" type="com.hj.oauth.entity.OauthRoleView">
+    <result column="userid" jdbcType="BIGINT" property="userid" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="role_id" jdbcType="BIGINT" property="roleId" />
+    <result column="role_name" jdbcType="VARCHAR" property="roleName" />
+    <result column="role_value" jdbcType="VARCHAR" property="roleValue" />
+    <result column="authority_id" jdbcType="BIGINT" property="authorityId" />
+    <result column="authority_name" jdbcType="VARCHAR" property="authorityName" />
+    <result column="authority_value" jdbcType="VARCHAR" property="authorityValue" />
+  </resultMap>
+  <insert id="insert" parameterType="com.hj.oauth.entity.OauthRoleView">
+    insert into oauth_role_view (userid, username, password, 
+      role_id, role_name, role_value, 
+      authority_id, authority_name, authority_value
+      )
+    values (#{userid,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{roleId,jdbcType=BIGINT}, #{roleName,jdbcType=VARCHAR}, #{roleValue,jdbcType=VARCHAR}, 
+      #{authorityId,jdbcType=BIGINT}, #{authorityName,jdbcType=VARCHAR}, #{authorityValue,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.hj.oauth.entity.OauthRoleView">
+    insert into oauth_role_view
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="roleName != null">
+        role_name,
+      </if>
+      <if test="roleValue != null">
+        role_value,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="roleName != null">
+        #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="roleValue != null">
+        #{roleValue,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="getListOauthByUsername" parameterType="java.lang.String" resultType="com.hj.oauth.entity.OauthRoleView">
+      SELECT
+      username as username,password as password,authority_name as authorityName,authority_value as authorityValue
+      FROM oauth_role_view WHERE username=#{username,jdbcType=VARCHAR}
+  </select>
+</mapper>
