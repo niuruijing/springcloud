@@ -3,6 +3,7 @@ package com.hj.feign.fallback;
 import com.hj.feign.entity.User;
 import com.hj.feign.service.HelloService;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class UserServiceFallback implements HelloService {
 
     @Override
-    public String hello2() {
-        return "error";
+    public String hello2(@PathVariable("version")String  version) {
+        return "version:"+version+"error";
     }
 
     @Override

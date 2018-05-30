@@ -12,6 +12,7 @@ import java.util.logging.Logger;
  * Created by niuruijing on 2018/4/20.
  */
 @RestController
+@RequestMapping("user/1.0/")
 public class UserController {
 
     Logger logger = Logger.getLogger(this.getClass().getName());
@@ -19,7 +20,7 @@ public class UserController {
     @Autowired
     private DiscoveryClient discoveryClient;
 
-    @RequestMapping(value = "/hello",method = RequestMethod.GET)
+    @RequestMapping(value = "hello",method = RequestMethod.GET)
     private String hello(){
         ServiceInstance serviceInstance = discoveryClient.getLocalServiceInstance();
         logger.info("hello-----host:"+serviceInstance.getHost()+",serviceId:"+serviceInstance.getServiceId());

@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.*;
  */
 //链接FeignClient 要负载的服务（服务名称）
 @Service
-@FeignClient(value = "user-server")
+@FeignClient(value = "user-server",fallback = UserServiceFallback.class)
 public interface HelloService {
 
     //要负载user-server服务中的/hello接口
-    @RequestMapping("/hello")
-    public String hello2();
+    @RequestMapping("user/{version}/hello")
+    public String hello2(@PathVariable("version")String version);
 
 
     /**
@@ -24,7 +24,6 @@ public interface HelloService {
      * 在springmvc中这些注解会根据参数名来做为默认值
      * 但在feign中参数必须通过value属性来指名具体的参数名  value属性不能为空
      */
-
     @RequestMapping(value = "test1",method = RequestMethod.GET)
     public String test1(@RequestParam("name")String name);
 
@@ -33,5 +32,6 @@ public interface HelloService {
 
     @RequestMapping(value = "test3",method = RequestMethod.POST)
     public String test3(@RequestBody User user);
+
 
 }
